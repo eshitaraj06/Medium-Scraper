@@ -6,32 +6,36 @@
     <title>Medium Articles</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <style>
         /* Add your custom CSS styles here */
         /* Example: */
         body {
-            background-color: #f7f7f7;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
         }
         .card-body {
-            background-color: #fff;
+            background-color: #fdfcfb;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
+            h1, h2, h3, h4, h5, h6, p {
+        font-family: 'Montserrat', sans-serif;
+    }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Medium Articles</a>
+    <nav class="navbar navbar-expand-lg " style="background-color: #1E1010;">
+        <a class="navbar-brand" href="#" style="color:#e2d1c3">Medium Articles </a>
     </nav>
 
     <div class="container mt-4">
-        <h1 class="mb-4">Latest Medium Articles</h1>
+        <h1 class="mb-4"><strong>Latest Medium Articles</strong></h1>
 
         {% for blog_post in Blogs %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}">{{ blog_post.title }}</a></h2>
+                    <h2 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}", style="color: #1E1010">{{ blog_post.title }}</a></h2>
                     <h6 class="card-subtitle mb-2 text-muted">{{ blog_post.author }}</h6>
                     
                    
