@@ -12,6 +12,14 @@
         <h2>{{ blog_post.title }}</h2>
         
         <p>By {{ blog_post.author }}</p>
+        <p>{{ blog_post.link }}</p>
+        <p>{{ blog_post.content }}</p> 
+        <p>Responses: {{ blog_post.responses }}</p> 
+        
+        <!--{% if blog_post.tags %}
+            <p>Tags: {{ blog_post.tags|join(', ') }}</p>
+        {% endif %}-->
+        
     {% endfor %}
 </body>
 </html>
