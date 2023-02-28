@@ -6,6 +6,19 @@
     <title>Medium Articles</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+        /* Example: */
+        body {
+            background-color: #f7f7f7;
+        }
+        .card-body {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,8 +33,8 @@
                 <div class="card-body">
                     <h2 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}">{{ blog_post.title }}</a></h2>
                     <h6 class="card-subtitle mb-2 text-muted">{{ blog_post.author }}</h6>
-                    <p>{{ blog_post.link }}</p>
-                    <p class="card-text">{{ blog_post.content }}</p>
+                    
+                   
                     <p class="card-text"><small class="text-muted">Responses: {{ blog_post.responses }}</small></p>
                 </div>
             </div>
