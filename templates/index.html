@@ -30,13 +30,13 @@
     </nav>
 
     <div class="container mt-4">
-        <h1 class="mb-4"><strong>Latest Medium Articles</strong></h1>
+        <h2 class="mb-4"><strong>Latest Medium Articles</strong></h2>
 
         {% for blog_post in Blogs %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}", style="color: #1E1010">{{ blog_post.title }}</a></h2>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ blog_post.author }}</h6>
+                    <h4 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}", style="color: #1E1010"><strong>{{ blog_post.title }}</strong></a></h4>
+                    <h6 class="card-subtitle mb-2 text-muted"><strong>{{ blog_post.author }}</strong></h6>
                     
                    
                     <p class="card-text"><small class="text-muted">Responses: {{ blog_post.responses }}</small></p>
