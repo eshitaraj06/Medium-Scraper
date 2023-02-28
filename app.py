@@ -33,7 +33,11 @@ def index():
         title = (soup.find("h1", {"class":"pw-post-title"}).text if soup.find("h1", {"class": "pw-post-title"}) else "")
         author = (soup.find("div", {"class":"ab q"}).text if soup.find("div", {"class": "ab q"}) else "")
         link = article
-        content = (soup.find("p", {"class":"pw-post-body-paragraph"}).text if soup.find("p", {"class": "pw-post-body-paragraph"}) else "")
+        #content = (soup.find("p", {"class":"pw-post-body-paragraph"}).text if soup.find("p", {"class": "pw-post-body-paragraph"}) else "")
+        content = ''
+        content_tags = soup.find_all("p", {"class":"pw-post-body-paragraph"})
+        for content_tag in content_tags:
+            content += content_tag.text + '\n'
         #tags = [tag.text for tag in soup.find("div", class_="mq di dt ")]
         responses = (soup.find("p", {"class":"bd b be z dw"}).text if soup.find("p", {"class": "bd b be z dw"}) else "")
         
@@ -55,6 +59,9 @@ def index():
         
     return render_template("index.html", Blogs= blog_data)
 
+@app.route('/blog_post/<title>/<author>/<content>/<responses>')
+def blog_post(title, author, content, responses):
+    return render_template('blog_post.html', title=title, author=author, content=content, responses=responses)
 
 
 
