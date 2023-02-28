@@ -2,23 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medium Articles</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Latest Medium Articles</h1>
-    {% for blog_post in Blogs %}
-    <h2><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}">{{ blog_post.title }}</a></h2>
-        <p>By {{ blog_post.author }}</p>
-        <p>{{ blog_post.link }}</p>
-        <p>{{ blog_post.content }}</p> 
-        <p>Responses: {{ blog_post.responses }}</p> 
-        
-        <!--{% if blog_post.tags %}
-            <p>Tags: {{ blog_post.tags|join(', ') }}</p>
-        {% endif %}-->
-        
-    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Medium Articles</a>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Latest Medium Articles</h1>
+
+        {% for blog_post in Blogs %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="{{ url_for('blog_post', title=blog_post.title, author=blog_post.author, content=blog_post.content, responses=blog_post.responses) }}">{{ blog_post.title }}</a></h2>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ blog_post.author }}</h6>
+                    <p>{{ blog_post.link }}</p>
+                    <p class="card-text">{{ blog_post.content }}</p>
+                    <p class="card-text"><small class="text-muted">Responses: {{ blog_post.responses }}</small></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
